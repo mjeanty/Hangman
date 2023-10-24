@@ -135,3 +135,33 @@ h1 {
 .popup button:focus {
     outline: 0;
 }
+
+
+.notification-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius:10px 10px 0 0 ;
+    -webkit-border-radius:10px 10px 0 0 ;
+    -moz-border-radius:10px 10px 0 0 ;
+    -ms-border-radius:10px 10px 0 0 ;
+    -o-border-radius:10px 10px 0 0 ;
+    padding: 15px 20px;
+    position: absolute;
+    bottom: -50px;
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+}
+
+.notification-container p {
+    margin: 0;
+}
+
+.notification-container.show{
+    transform:translateY(-50px);
+    -webkit-transform:translateY(-50px);
+    -moz-transform:translateY(-50px);
+    -ms-transform:translateY(-50px);
+    -o-transform:translateY(-50px);
+}
