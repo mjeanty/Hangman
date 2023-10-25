@@ -43,10 +43,23 @@ function updateWrongLettersEl() {
     ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
     ${wrongLetters.map(letter => `<span>${letter}</span>`)}
   `;
-  console.log(wrongLetters)
+
+  figureParts.forEach((part, index) => {
+    const errors = wrongLetters.length
+    if (index<errors){
+      part.style.display = 'block'
+    } else {
+      part.style.display ='none'
+    }
+  })
+
+
+//check if Lost
+if (wrongLetters.length === figureParts.length) {
+  finalMessage.innerText = ' womp womp womp you lost.😕';
+  popup.style.display = 'flex';
 }
-
-
+}
 //show notification
 function showNotification(){
   notification.classList.add('show')
@@ -86,4 +99,14 @@ window.addEventListener('keydown', e => {
     }
   }
 });
+// restart play again
+playAgainBtn.addEventListener('click', () =>{
+  correctLetters.splice(0)
+  wrongLetters.splice(0)
+
+  selectedWord= words[Math.floor(Math.random()* words.length)]
+  displayWord()
+  updateWrongLettersEl()
+  popup.style.display ='none'
+})
 displayWord()
